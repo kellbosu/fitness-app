@@ -1,3 +1,7 @@
+import streamlit as st
+import pandas as pd
+
+
 MAXES = {
     "bench" : 285,
     "squat" : 365,
@@ -82,7 +86,7 @@ def generate_phase(working_max, wave, phase):
     results = []
 
     for item in prescriptions:
-        raw_weight = working_max * item["pct"]
+        raw_weight = (working_max * item["pct"])
 
         results.append({
             "%" : item["pct"],
@@ -92,6 +96,14 @@ def generate_phase(working_max, wave, phase):
         })
     return results
 
+col1, col2, col3 = st.columns(3)
+if col2.button("New Program", width="stretch"):
 
-session = generate_phase( MAXES["squat"], "10s", "realization")
+    bench_10s = generate_phase(MAXES["bench"], "8s", "intensificaiton")
+
+
+    for line in bench_10s:
+        st.write(line)
+    
+
 
