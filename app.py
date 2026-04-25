@@ -96,14 +96,18 @@ def generate_phase(working_max, wave, phase):
         })
     return results
 
-col1, col2, col3 = st.columns(3)
-if col2.button("New Program", width="stretch"):
-
-    bench_10s = generate_phase(MAXES["bench"], "8s", "intensificaiton")
+# Format
 
 
-    for line in bench_10s:
-        st.write(line)
-    
+def page_2():
+    st.title("GENERATE PROGRAM HERE")
+
+pg = st.navigation(["page_1.py", page_2])
+pg.run()
+
+
+
+
+
 
 
